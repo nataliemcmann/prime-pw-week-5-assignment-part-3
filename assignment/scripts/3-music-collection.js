@@ -30,8 +30,15 @@ console.log('Add Lonerism by Tame Impala to the collection:', addToCollection('L
 //- Console.log the number of items in the array.
 //- Loop over the array and console.log each album's information formatted like: 
 //`TITLE by ARTIST, published in YEAR`.
+function showCollection(array){
+    console.log(array.length);
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${array[i].albumTitle} by ${array[i].albumArtist}, published in ${array[i].albumYear}`);
+    }
+}
 
 //- Test the `showCollection` function.
+showCollection(collection);
 
 //- Add a function named `findByArtist`. This function should:
 //  - Take in `artist` (a string) parameter
