@@ -45,7 +45,18 @@ showCollection(collection);
 //  - Create an array to hold any results, empty to start
 //  - Loop through the `collection` and add any objects with a matching artist to the array.
 //  - Return the array with the matching results. If no results are found, return an empty array.
+function findByArtist(artist) {
+    let found = [];
+    for (let i = 0; i < collection.length; i++) {
+        if (collection[i].albumArtist === artist) {
+            found.push(collection[i]);
+        } 
+    } 
+    return found;
+}
 
 //- Test the `findByArtist` function.
+console.log('Shound find Tame Impala album:', findByArtist('Tame Impala'));
+console.log('Should return empty array:', findByArtist('Bing Crosby'));
 
 //Stretch Goals
