@@ -10,13 +10,13 @@ console.log('Record collection is empty:', collection);
 //- Add the new object to the end of the `collection` array
 //- Return the newly created object
 
-function addToCollection(title, artist, yearPublished, array) {
-    let trackArray = Object.fromEntries(array);
+function addToCollection(title, artist, yearPublished, trackArray) {
+    let tracks = Object.fromEntries(trackArray);
     let album = { 
         albumTitle: title,
         albumArtist: artist,
         albumYear: yearPublished,
-        albumTracks: trackArray
+        albumTracks: tracks
     }
     collection.push(album);
     return album;
@@ -29,30 +29,30 @@ let fmArray = [
     ['time1', '4:17'], 
     ['track2', 'Go Your Own Way'],
     ['time2', '3:39'], 
-    ['track 3', 'The Chain'], 
+    ['track3', 'The Chain'], 
     ['time3', '4:30']
 ];
 console.log('Add Rumours by Fleetwood Mac to the collection:', addToCollection('Rumours', 'Fleetwood Mac', 1977, fmArray));
 //add some more music albums
-
-//create BlackParade track array
-let mcrArray = [
+console.log('Add The Black Parade by My Chemical Romance to the collection:', 
+addToCollection('The Black Parade', 'My Chemical Romance', 2006, //split console.log statement so I test something
+//testing if I can add tracks straight in
+[
     ['track1', 'The End.'], 
     ['time1', '1:53'], 
     ['track2', 'Welcome to the Black Parade'],
     ['time2', '5:11'], 
-    ['track 3', 'House of Wolves'], 
+    ['track3', 'House of Wolves'], 
     ['time3', '3:04']
-]
-console.log('Add The Black Parade by My Chemical Romance to the collection:', addToCollection('The Black Parade', 'My Chemical Romance', 2006, mcrArray));
+])); //and it works but looks messy
 
-//create Tame Impala array
+//creating track array beforehand lets my console log statement be on one line
 let tiArray = [
     ['track1', 'Be Above It'], 
     ['time1', '3:21'], 
     ['track2', 'Feels Like We Only Go Backwards'],
     ['time2', '3:13'], 
-    ['track 3', 'Elephant'], 
+    ['track3', 'Elephant'], 
     ['time3', '3:31']
 ]
 console.log('Add Lonerism by Tame Impala to the collection:', addToCollection('Lonerism', 'Tame Impala', 2012, tiArray));
@@ -65,7 +65,10 @@ console.log('Add Lonerism by Tame Impala to the collection:', addToCollection('L
 function showCollection(array){
     console.log(array.length);
     for (let i = 0; i < array.length; i++) {
-        console.log(`${array[i].albumTitle} by ${array[i].albumArtist}, published in ${array[i].albumYear}`);
+        console.log(`${array[i].albumTitle} by ${array[i].albumArtist}, published in ${array[i].albumYear}:
+        1. ${array[i].albumTracks.track1} : ${array[i].albumTracks.time1} 
+        2. ${array[i].albumTracks.track2} : ${array[i].albumTracks.time2} 
+        3. ${array[i].albumTracks.track3} : ${array[i].albumTracks.time3}`);
     }
 }
 
