@@ -60,3 +60,30 @@ console.log('Shound find Tame Impala album:', findByArtist('Tame Impala'));
 console.log('Should return empty array:', findByArtist('Bing Crosby'));
 
 //Stretch Goals
+
+// - Create a function called `search`. This function should:
+//  - Take an input parameter for a search criteria object. Create your solution based on a search object that has these properties:
+//  ```
+//  { artist: 'Ray Charles', year: 1957 }
+//  ```
+//  - The returned output from `search` should meet these requirements:
+//  - Return a new array of all items in the `collection` matching *all* of the search criteria.
+//  - If no results are found, return an empty array.
+//  - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
+function search({artist, year} = {}) { //set search object of artist & year to a default blank object if not input
+    let found = [];
+    for (let i = 0; i < collection.length; i++) {
+        if (collection[i].albumArtist === artist && 
+            collection[i].albumYear === year) {
+                found.push(collection[i]);
+        } else if (artist === undefined && year === undefined) {
+            found = collection;
+        }
+    return found;
+    }
+}
+//test search
+console.log('Search object empty. Should return all albums:', search({}));
+console.log('Should return no albums:', search({artist: 'My Chemical Romance', year: 2022}));
+console.log('Should return The Black Parade by MCR:', search({artist: 'My Chemical Romance', year: 2006}));
+console.log('No search object provided. Should return all albums:', search());
