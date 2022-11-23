@@ -23,6 +23,12 @@ function addToCollection(title, artist, yearPublished, trackArray) {
 }
 
 //test addToCollection
+//- Test the `addToCollection` function:
+//  - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. 
+// (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
+//  - Console.log each album as added using the returned value.
+//  - After all are added, console.log the `collection` array.
+
 //create Rumours track array
 let fmArray = [
     ['track1', 'Dreams'], 
@@ -57,23 +63,60 @@ let tiArray = [
 ]
 console.log('Add Lonerism by Tame Impala to the collection:', addToCollection('Lonerism', 'Tame Impala', 2012, tiArray));
 
+//make 3 more albums
+let wigArray = [
+    ['track1', 'Hot Potato'],
+    ['time1', '1:14'],
+    ['track2', 'Fruit Salad'],
+    ['time2', '2:28'],
+    ['track3', 'Willaby Wallaby Woo'],
+    ['time3', '1:34']
+]
+// Add the Wiggles
+console.log('Add Yummy Yummy by The Wiggles to the collection:', addToCollection('Yummy Yummy', 'The Wiggles', 1994, wigArray));
+
+// Add Phoebe Bridges
+let pbArray = [
+    ['track1', 'Garden Song'],
+    ['time1', '3:39'],
+    ['track2', 'Moon Song'],
+    ['time2', '4:37'],
+    ['track3', 'I Know the End'],
+    ['time3', '5:44']
+]
+
+console.log('Add Punisher by Phoebe Bridgers to the collection:', addToCollection('Punisher', 'Phoebe Bridgers', 2020, pbArray));
+
+// Add Three Cheers for Sweet Revenge
+let mcArray = [
+    ['track1', 'Helena'],
+    ['time1', '3:23'],
+    ['track2', 'To the End'],
+    ['time2', '3:01'],
+    ['track3', 'The Ghost of You'],
+    ['time3', '3:23']
+]
+
+console.log('Add Three Cheers for Sweet Revenge by MCR to the collection:', addToCollection('Three Cheers for Sweet Revenge', 'My Chemical Romance', 2004, mcArray));
+
 //- Add a function named `showCollection`. This function should:
 //- Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
 //- Console.log the number of items in the array.
 //- Loop over the array and console.log each album's information formatted like: 
 //`TITLE by ARTIST, published in YEAR`.
 function showCollection(array){
-    console.log(array.length);
+    console.log('I have this many albums:', array.length);
     for (let i = 0; i < array.length; i++) {
         console.log(`${array[i].albumTitle} by ${array[i].albumArtist}, published in ${array[i].albumYear}:
         1. ${array[i].albumTracks.track1} : ${array[i].albumTracks.time1} 
         2. ${array[i].albumTracks.track2} : ${array[i].albumTracks.time2} 
         3. ${array[i].albumTracks.track3} : ${array[i].albumTracks.time3}`);
     }
+    return "Cool collection, right?"
 }
 
 //- Test the `showCollection` function.
-showCollection(collection);
+console.log(showCollection(collection));
 
 //- Add a function named `findByArtist`. This function should:
 //  - Take in `artist` (a string) parameter
@@ -91,7 +134,7 @@ function findByArtist(artist) {
 }
 
 //- Test the `findByArtist` function.
-console.log('Shound find Tame Impala album:', findByArtist('Tame Impala'));
+console.log('Shound find MCR albums:', findByArtist('My Chemical Romance'));
 console.log('Should return empty array:', findByArtist('Bing Crosby'));
 
 //Stretch Goals
@@ -105,7 +148,7 @@ console.log('Should return empty array:', findByArtist('Bing Crosby'));
 //  - Return a new array of all items in the `collection` matching *all* of the search criteria.
 //  - If no results are found, return an empty array.
 //  - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
-console.log(collection[0].albumTracks); //see typeof album track
+console.log(collection[0].albumTracks); //check if album tracks are a nested object
 
 function search({artist, year, trackName} = {}) { //set search object of artist & year to a default blank object if no input
     let found = [];
@@ -128,6 +171,6 @@ function search({artist, year, trackName} = {}) { //set search object of artist 
 
 //test search
 console.log('Search object empty. Should return all albums:', search({}));
-console.log('Should return no albums:', search({artist: 'My Chemical Romance', year: 2022, trackName: 'Ghost of You'}));
+console.log('Should return no albums:', search({artist: 'My Chemical Romance', year: 2022, trackName: 'The Ghost of You'}));
 console.log('Should return The Black Parade by MCR:', search({artist: 'My Chemical Romance', year: 2006, trackName: 'The End.'}));
 console.log('No search object provided. Should return all albums:', search());
