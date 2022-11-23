@@ -74,6 +74,8 @@ let wigArray = [
 ]
 // Add the Wiggles
 console.log('Add Yummy Yummy by The Wiggles to the collection:', addToCollection('Yummy Yummy', 'The Wiggles', 1994, wigArray));
+collection[3].funFact = "The Wiggles covered Tame Impala's Elephant and re-mixed it with Fruit Salad in 2020. It was awesome."
+console.log(collection[3].funFact) //because I think everyone should know
 
 // Add Phoebe Bridges
 let pbArray = [
