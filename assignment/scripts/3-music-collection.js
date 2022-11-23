@@ -105,25 +105,29 @@ console.log('Should return empty array:', findByArtist('Bing Crosby'));
 //  - Return a new array of all items in the `collection` matching *all* of the search criteria.
 //  - If no results are found, return an empty array.
 //  - If there is no search object or an empty search object provided as input, then return all albums in the `collection`.
-function search({artist, year} = {}) { //set search object of artist & year to a default blank object if no input
+console.log(collection[0].albumTracks); //see typeof album track
+
+function search({artist, year, trackName} = {}) { //set search object of artist & year to a default blank object if no input
     let found = [];
     for (let i = 0; i < collection.length; i++) {
         if (collection[i].albumArtist === artist && 
             collection[i].albumYear === year) {
-                found.push(collection[i]);
-        } else if (artist === undefined && year === undefined) {
+                    if(collection[i].albumTracks.track1 === trackName ||
+                    collection[i].albumTracks.track2 === trackName ||
+                    collection[i].albumTracks.track3 === trackName) {
+                        found.push(collection[i]);
+                    }
+                }
+        } if (artist === undefined || 
+            year === undefined || 
+            trackName === undefined) {
             found = collection;
         }
-    return found;
+        return found;
     }
-}
+
 //test search
 console.log('Search object empty. Should return all albums:', search({}));
-console.log('Should return no albums:', search({artist: 'My Chemical Romance', year: 2022}));
-console.log('Should return The Black Parade by MCR:', search({artist: 'My Chemical Romance', year: 2006}));
+console.log('Should return no albums:', search({artist: 'My Chemical Romance', year: 2022, trackName: 'Ghost of You'}));
+console.log('Should return The Black Parade by MCR:', search({artist: 'My Chemical Romance', year: 2006, trackName: 'The End.'}));
 console.log('No search object provided. Should return all albums:', search());
-
-//- Add an array of `tracks` to your album objects. Each track should have a `name` and `duration`. You will need to update the functions to support this new property:
-//  - Update the `addToCollection` function to also take an input parameter for the array of tracks.
-//  - Update `search` to allow a `trackName` search criteria.
-//  - Update the `showCollection` function to display the list of tracks for each album with its name and duration.
