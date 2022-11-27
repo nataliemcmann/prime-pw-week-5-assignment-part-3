@@ -74,8 +74,8 @@ let wigArray = [
 ]
 // Add the Wiggles
 console.log('Add Yummy Yummy by The Wiggles to the collection:', addToCollection('Yummy Yummy', 'The Wiggles', 1994, wigArray));
-collection[3].funFact = "The Wiggles covered Tame Impala's Elephant and re-mixed it with Fruit Salad in 2020. It was awesome."
-console.log(collection[3].funFact) //because I think everyone should know
+collection[3].funFact = "The Wiggles covered Tame Impala's Elephant and re-mixed it with Fruit Salad in 2020. It was awesome.";
+console.log(`Fun fact: ${collection[3].funFact}`); //because I think everyone should know
 
 // Add Phoebe Bridges
 let pbArray = [
@@ -101,13 +101,16 @@ let mcArray = [
 
 console.log('Add Three Cheers for Sweet Revenge by MCR to the collection:', addToCollection('Three Cheers for Sweet Revenge', 'My Chemical Romance', 2004, mcArray));
 
+//log arrary
+console.log('Added 6 records to by music collection:', collection);
+
 //- Add a function named `showCollection`. This function should:
 //- Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
 //- Console.log the number of items in the array.
 //- Loop over the array and console.log each album's information formatted like: 
 //`TITLE by ARTIST, published in YEAR`.
 function showCollection(array){
-    console.log('I have this many albums:', array.length);
+    console.log('I have this many music albums:', array.length);
     for (let i = 0; i < array.length; i++) {
         console.log(`${array[i].albumTitle} by ${array[i].albumArtist}, published in ${array[i].albumYear}:
         1. ${array[i].albumTracks.track1} : ${array[i].albumTracks.time1} 
